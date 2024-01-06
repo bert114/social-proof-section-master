@@ -1,0 +1,168 @@
+@use "./global/config" as *;
+@use "./global/fa" as *;
+@forward "global";
+@forward "components";
+
+main {
+  background: url("../assets/images/bg-pattern-top-mobile.svg") top left
+      no-repeat,
+    url("../assets/images/bg-pattern-bottom-desktop.svg") bottom left no-repeat;
+  padding: 25px;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+
+  .container {
+    max-width: 1200px;
+    margin-inline: auto;
+    > :nth-child(1) {
+      text-align: center;
+
+      h1 {
+        line-height: 0.8;
+        margin: 1rem auto 1.5rem auto;
+      }
+
+      p {
+        color: $clr-neutral400;
+      }
+
+      article {
+        margin-bottom: 1.5rem;
+      }
+
+      ul {
+        margin-bottom: 2rem;
+        .stars {
+          display: flex;
+          justify-content: center;
+          gap: 0.4rem;
+        }
+
+        li {
+          padding: 2.5rem 0 2.3rem 0;
+          background-color: $clr-neutral90;
+          margin: 8px 0;
+          height: 70px;
+          display: flex;
+          flex-direction: column;
+
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+
+  .sec2 {
+    .flex {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      p {
+        color: $clr-neutral100;
+        text-align: center;
+      }
+
+      > * {
+        padding: 2.4rem 2rem;
+        border-radius: 10px;
+      }
+
+      .col {
+        > :nth-child(1) {
+          display: flex;
+          gap: 1rem;
+          margin-bottom: 1.25rem;
+        }
+
+        > :nth-child(1) > :nth-child(2) {
+          color: $clr-primary400;
+        }
+      }
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+
+      h2 {
+        color: $clr-neutral100;
+      }
+    }
+  }
+}
+
+@media (min-width: 810px) {
+  main {
+    background: url("../assets/images/bg-pattern-top-desktop.svg") top left
+        no-repeat,
+      url("../assets/images/bg-pattern-bottom-desktop.svg") bottom left
+        no-repeat;
+    .container {
+      > :nth-child(1) {
+        display: flex;
+        text-align: initial;
+        justify-content: space-between;
+        gap: 0.5rem;
+
+        > :nth-child(1) {
+          flex: 0 1.5 420px;
+        }
+
+        > :nth-child(2) {
+          flex: 0 1 500px;
+        }
+
+        ul {
+          gap: 0.5rem;
+          display: flex;
+          flex-direction: column;
+          li {
+            flex-direction: row;
+            justify-content: initial;
+            height: 56px;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0 2rem;
+          }
+
+          > :nth-child(1) {
+            /* Step 0: 14.00px → 96.00px */
+            margin-right: clamp(0.875rem, -4.25rem + 13.6667vw, 6rem);
+          }
+          > :nth-child(2) {
+            /* Step 0: 14.00px → 48.00px */
+            margin-left: clamp(0.875rem, -1.25rem + 5.6667vw, 3rem);
+            margin-right: clamp(0.875rem, -1.25rem + 5.6667vw, 3rem);
+          }
+          > :nth-child(3) {
+            /* Step 0: 14.00px → 96.00px */
+            margin-left: clamp(0.875rem, -4.25rem + 13.6667vw, 6rem);
+          }
+        }
+      }
+    }
+
+    .sec2 {
+      .flex {
+        flex-direction: row;
+        /* Step 0: 14.00px → 32.00px */
+        gap: clamp(0.875rem, -0.25rem + 3vw, 2rem);
+        align-items: start;
+
+        > :nth-child(2) {
+          margin-top: 2rem;
+        }
+
+        > :nth-child(3) {
+          margin-top: 4rem;
+        }
+      }
+    }
+  }
+}
